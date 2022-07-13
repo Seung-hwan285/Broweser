@@ -33,6 +33,11 @@ const getBrowserVesrion = () => {
     case 'Firefox':
         return `${browser}/${browserVersion(userAgent,/(firefox|fxios)\/([\d\.]+)/i)}`;
 
+    case 'IE': const version = browserVersion(userAgent,/(trident)\/([\d\.]+)/i);
+      // IE version is mapped using trident version
+      // IE/8.0 = Trident/4.0, IE/9.0 = Trident/5.0
+      return version ? `${browser}/${parseFloat(version) + 4.0}` : `${browser}/7.0`;
+
     default :
         return 'unkown/0.0.0.0';
 
