@@ -8,7 +8,7 @@ const getBrowserName =()=>{
   // 브라우저 이름
 
   // Chrome browser
-  browser = (/chrome/i)
+  browser = (/chrome|crios/i)
     .test(userAgent)
     ? 'Chrome' : browser;
 
@@ -24,6 +24,8 @@ const getBrowserName =()=>{
     .test(userAgent)
     ? 'Edge' : browser;
 
+
+
   // Firebase browser
   browser = (/firefox|fxios/i)
     .test(userAgent)
@@ -35,6 +37,8 @@ const getBrowserName =()=>{
 }
 
 
+
+
 const getBrowserVersion = () => {
 
   const userAgent = navigator.userAgent;
@@ -43,13 +47,13 @@ const getBrowserVersion = () => {
 
   switch (browserName) {
     case 'Chrome':
-      return `${browserName}/${browserVersion(userAgent, /(chrome)\/([\d\.]+)/i)}`;
+      return `${browserName}/${browserVersion(userAgent, /(chrome|crios)\/([\d\.]+)/i)}`;
 
     case 'Safari':
       return `${browserName}/${browserVersion(userAgent, /(safari)\/([\d\.]+)/i)}`;
 
     case 'Edge':
-      return `${browserName}/${browserVersion(userAgent, /(edg)\/([\d\.]+)/i)}`;
+      return `${browserName}/${browserVersion(userAgent, /(edge|edga|edgios|edg)\/([\d\.]+)/i)}`;
 
     case 'Firefox':
       return `${browserName}/${browserVersion(userAgent, /(firefox)\/([\d\.]+)/i)}`;
@@ -64,11 +68,10 @@ const getBrowserVersion = () => {
 }
 
 
+
 const browserVersion = (userAgent,regex) => {
-
-  return userAgent.match(regex)[2];
-
-  //return userAgent.match(regex) ? userAgent.match(regex)[2];
+  // return userAgent.match(regex)[2];
+  return userAgent.match(regex) ? userAgent.match(regex)[2]: null;
 }
 
 alert(getBrowserVersion());
