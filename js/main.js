@@ -38,7 +38,6 @@ const getBrowserVersion = () => {
   let pcDevice = "win|16|win32|win65|mac|macintel";
 
   if(navigator.platform){
-
     if(pcDevice.indexOf(navigator.platform.toLowerCase())<0){
       switch (browserName) {
         case 'Chrome':
@@ -85,8 +84,7 @@ const getBrowserVersion = () => {
           return 'unkown/0.0.0.0';
 
       }
-
-      console.log("PC");
+      
     }
 
   }
