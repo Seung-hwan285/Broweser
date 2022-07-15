@@ -5,7 +5,7 @@ const getBrowserName =()=>{
   // 브라우저 이름
 
   // Chrome browser
-  browser = (/chrome|chrios/i).test(userAgent)
+  browser = (/chrome|crios/i).test(userAgent)
     ? 'Chrome' : browser;
 
   // Safari browser
@@ -34,11 +34,12 @@ const getBrowserVersion = () => {
   let browserName = getBrowserName();
 
 
-
-  let pcDevice = "win|16|win32|win65|mac|macintel";
+  let pcDevice = "win16|win32|win64|mac|macintel";
 
   if(navigator.platform){
     if(pcDevice.indexOf(navigator.platform.toLowerCase())<0){
+
+
       switch (browserName) {
         case 'Chrome':
           // crios 모바일 크롬 브라우저
@@ -60,7 +61,6 @@ const getBrowserVersion = () => {
           return 'unkown/0.0.0.0';
 
       }
-
     }else{
 
       switch (browserName) {
@@ -84,7 +84,7 @@ const getBrowserVersion = () => {
           return 'unkown/0.0.0.0';
 
       }
-      
+
     }
 
   }
