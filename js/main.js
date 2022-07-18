@@ -25,6 +25,16 @@ const getBrowserName =()=>{
 
 }
 
+const checkDevice=()=>{
+
+
+  const pcDevice ="win16|wind32|win64|mac|macintel";
+
+
+  if(navigator.platform){
+
+  }
+}
 
 
 const getBrowserVersion = () => {
@@ -34,16 +44,18 @@ const getBrowserVersion = () => {
   let browserName = getBrowserName();
 
 
-  let pcDevice = "win16|win32|win64|mac|macintel";
+  const pcDevice = "win16|win32|win64|mac|macintel";
 
-  if(navigator.platform){
+
+    console.log(pcDevice.indexOf(navigator.platform));
+
+    // indexOf를 통해서 지정된
     if(pcDevice.indexOf(navigator.platform.toLowerCase())<0){
-
 
       switch (browserName) {
         case 'Chrome':
-          // crios 모바일 크롬 브라우저
-          // chrome Pc 크롬 브라우저
+          // crios mobile browser
+          // chrome pc browser
           return `${browserName}/${browserVersion(userAgent, /(chrome|crios)\/([\d\.]+)/i)}+ Mobile`;
 
         case 'Safari':
@@ -51,8 +63,8 @@ const getBrowserVersion = () => {
 
         case 'Edge':
           return `${browserName}/${browserVersion(userAgent, /(edge|edga|edgios|edg)\/([\d\.]+)/i)}+ Mobile`;
-        // firefox pc 크롬 브라우저
-        // fxios 모바일 크롬 브라우저
+        // firefox pc browser
+        // fxios mobile browser
 
         case 'Firefox':
           return `${browserName}/${browserVersion(userAgent, /(firefox|fxios)\/([\d\.]+)/i)} + Mobile`;
@@ -61,12 +73,14 @@ const getBrowserVersion = () => {
           return 'unkown/0.0.0.0';
 
       }
-    }else{
+    }
+
+    else{
 
       switch (browserName) {
         case 'Chrome':
-          // crios 모바일 크롬 브라우저
-          // chrome Pc 크롬 브라우저
+          // crios mobile browser
+          // chrome pc browser
           return `${browserName}/${browserVersion(userAgent, /(chrome|crios)\/([\d\.]+)/i)}+ PC`;
 
         case 'Safari':
@@ -74,8 +88,8 @@ const getBrowserVersion = () => {
 
         case 'Edge':
           return `${browserName}/${browserVersion(userAgent, /(edge|edga|edgios|edg)\/([\d\.]+)/i)}+ PC`;
-        // firefox pc 크롬 브라우저
-        // fxios 모바일 크롬 브라우저
+        // firefox pc browser
+        // fxios mobile browser
 
         case 'Firefox':
           return `${browserName}/${browserVersion(userAgent, /(firefox|fxios)\/([\d\.]+)/i)} + PC`;
@@ -84,18 +98,9 @@ const getBrowserVersion = () => {
           return 'unkown/0.0.0.0';
 
       }
-
     }
 
-  }
-
-
-
-
 }
-
-
-
 
 
 
